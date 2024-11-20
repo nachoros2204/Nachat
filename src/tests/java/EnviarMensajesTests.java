@@ -28,11 +28,12 @@ public class EnviarMensajesTests {
         grupo.agregarMiembro(usuario3);
 
         //creamos un mensaje
-        Mensaje mensaje = new Mensaje("hola", LocalDateTime.now());
+        Mensaje mensaje = new Mensaje("hola");
 
         //creamos chat y enviamos el mensaje al grupo
-        Chat chat = new Chat();
-        chat.enviarMensaje(mensaje, usuario1, grupo);
+        Chat chat = new Chat(grupo);
+        chat.enviarMensaje(mensaje, usuario1);
+        chat.enviarMensaje(mensaje, usuario1);
 
         //verificamos que los usuarios recibieron el mensaje
         assertEquals(1, usuario1.getMensajesRecibidos().size());
@@ -49,13 +50,33 @@ public class EnviarMensajesTests {
         Usuario usuario1 = new Usuario("Juan", "123");
         Usuario usuario2 = new Usuario("Nacho", "456");
 
-        Mensaje mensaje = new Mensaje("Mensaje", LocalDateTime.now());
+        Mensaje mensaje = new Mensaje("Mensaje", usuario1);
+
 
         Chat chat = new Chat();
-        chat.enviarMensaje(mensaje, usuario1, usuario2);
+        chat.agregar(usuario1);
+        chat.agregar(usuario2);
+        
+        chat.enviar(mensaje);
 
         //verificar que usuario2 ha recibido el mensaje
-        assertEquals(1, usuario2.getMensajesRecibidos().size());
-        assertEquals(mensaje.getTexto(), usuario2.getMensajesRecibidos().get(0).getTexto());
+        assertEquals(1, chat.getMensajesChat().size());
+        assertEquals("Mensaje", chat.getMensajesChat().get(0).getTexto());
+        assertEquals("Juan", chat.getMensajesChat().get(0).getUsuarioRemitente().getNombre());
+    }
+
+    @Test
+    public void testAutomensaje() {
+
+        Usuario usuario1 = new Usuario("Juan", "123");
+
+        Mensaje mensaje = new Mensaje("Mensaje");
+
+        Chat chat = new Chat(usuario1);
+        chat.enviarMensaje(mensaje, usuario1);
+
+        //verificar que usuario1 ha recibido el mensaje
+        assertEquals(1, usuario1.getMensajesRecibidos().size());
+        assertEquals(mensaje.getTexto(), usuario1.getMensajesRecibidos().get(0).getTexto());
     }
 }

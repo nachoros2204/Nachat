@@ -4,18 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Chat {
-    private List<Mensaje> mensajesChat;
-
-    public Chat() {
-        this.mensajesChat = new ArrayList<>();
+    private List<ParticipanteDeChat> miembros;
+    private List<Mensaje> mensajes;
+  
+    public Chat () {
+        this.miembros = new ArrayList<>();
+        this.mensajes = new ArrayList<>();
     }
 
-    public void enviarMensaje(Mensaje mensaje, Usuario remitente, ParticipanteDeChat destinatario) {
-        mensajesChat.add(mensaje);
-        destinatario.recibirMensaje(mensaje); //uso polimorfico de Chats
+    public List<ParticipanteDeChat> getMiembros() {
+        return miembros;
     }
 
     public List<Mensaje> getMensajesChat() {
-        return mensajesChat;
+        return mensajes;
+    }
+    
+    public void agregar(ParticipanteDeChat miembroDeChat) {
+        miembros.add(miembroDeChat);
+    }
+    
+    public void enviar(Mensaje mensajeDeChat) {
+        mensajes.add(mensajeDeChat);
     }
 }

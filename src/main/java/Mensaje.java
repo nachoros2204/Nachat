@@ -7,11 +7,13 @@ import java.util.List;
 public class Mensaje {
     private String texto;
     private LocalDateTime fecha;
+    private Usuario usuarioRemitente;
     private List<Visto> vistos; //lista de usuarios que ven el mensaje
 
-    public Mensaje(String texto, LocalDateTime fecha) {
+    public Mensaje(String texto, Usuario usuarioRemitente) {
         this.texto = texto;
-        this.fecha = fecha;
+        this.fecha = LocalDateTime.now();
+        this.usuarioRemitente = usuarioRemitente;
         this.vistos = new ArrayList<>();
     }
 
@@ -21,6 +23,10 @@ public class Mensaje {
 
     public String getTexto() {
         return texto;
+    }
+
+    public Usuario getUsuarioRemitente() {
+        return usuarioRemitente;
     }
 
     public LocalDateTime getFecha() {
@@ -53,4 +59,9 @@ public class Mensaje {
         }
         return null; //si el usuario no vio el mensaje
     }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
 }

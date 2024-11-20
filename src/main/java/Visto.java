@@ -11,7 +11,7 @@ public class Visto implements IVisto {
     public Visto(Usuario destinatarioDelVisto, boolean visto, LocalDateTime fechaVisto) {
         this.destinatarioDelVisto = destinatarioDelVisto;
         this.visto = visto;
-        this.fechaVisto = fechaVisto;
+        this.fechaVisto = LocalDateTime.now();
     }
 
     public Usuario getDestinatarioDelVisto() {
