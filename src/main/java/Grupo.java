@@ -10,11 +10,7 @@ public class Grupo extends ParticipanteDeChat {
         super(nombre);
         this.miembros = new ArrayList<>();
     }
-
-    public List<Usuario> getMiembros() {
-        return miembros;
-    }
-
+    
     public void agregarMiembro(Usuario usuario) {
         if (!miembros.contains(usuario)) {
             miembros.add(usuario);
