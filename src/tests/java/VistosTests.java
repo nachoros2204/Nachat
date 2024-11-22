@@ -44,9 +44,9 @@ public class VistosTests {
 
         //verificamos que hay fecha de vista
         MensajeVisto mensajeVisto = mensaje.getVistos().get(0);  // Obtenemos el primer visto
-        assertNotNull("fecha de visto no debe ser null", mensajeVisto.getFechaVisto());
+        assertNotNull("fecha de visto no debe ser null", mensajeVisto.getFecha());
 
         //verificamos que la fecha de visto es posterior a la fecha antes de ver
-        assertTrue("fecha de visto posterior al mensaje enviado", mensajeVisto.getFechaVisto().isAfter(mensaje.getFecha()));
+        assertTrue("fecha de visto posterior al mensaje enviado", mensajeVisto.getFecha().isAfter(mensaje.getFecha()));
     }
 }

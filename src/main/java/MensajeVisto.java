@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 public class MensajeVisto implements IMensajeVisto {
     private Mensaje mensaje;
     private Usuario usuario;
-    private LocalDateTime fechaVisto;
+    private LocalDateTime fecha;
 
     public MensajeVisto(Mensaje mensaje, Usuario usuario) {
         this.mensaje = mensaje;
         this.usuario = usuario;
-        this.fechaVisto = LocalDateTime.now();
+        this.fecha = LocalDateTime.now();
     }
 
     public Mensaje getMensaje() {
@@ -27,7 +27,7 @@ public class MensajeVisto implements IMensajeVisto {
     }
 
     @Override
-    public LocalDateTime getFechaVisto() {
-        return fechaVisto;
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 }
