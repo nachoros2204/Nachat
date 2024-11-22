@@ -20,10 +20,5 @@ public class Usuario extends ParticipanteDeChat {
     @Override
     public void recibirMensaje(Mensaje mensaje) {
         mensajesRecibidos.add(mensaje);//el usuario recibe el mensaje
-    }
-
-    public List<Mensaje> getMensajesRecibidos() {
-        return mensajesRecibidos;
-    }
-    
+    }   
 }
