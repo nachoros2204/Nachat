@@ -33,10 +33,6 @@ public class Mensaje {
         return fecha;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
     public boolean yaVistoPor(Usuario usuario) {
         return vistos.stream().anyMatch(v -> v.getUsuario().equals(usuario) && v.getVisto());
     }

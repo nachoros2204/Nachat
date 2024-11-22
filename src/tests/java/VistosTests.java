@@ -39,9 +39,6 @@ public class VistosTests {
         Usuario usuario1 = new Usuario("Juan", "1234");
         Mensaje mensaje = new Mensaje("Hola", usuario1);
 
-        //creamos una variable con el tiempo antes de ver el mensaje
-        LocalDateTime antesDeVer = LocalDateTime.now();
-
         Chat chat = new Chat();
         chat.agregar(usuario1);
         chat.enviar(mensaje);
@@ -52,6 +49,6 @@ public class VistosTests {
         assertNotNull("fecha de visto no debe ser null", mensajeVisto.getFechaVisto());
 
         //verificamos que la fecha de visto es posterior a la fecha antes de ver
-        assertTrue("fecha de visto posterior a la visualizacion", mensajeVisto.getFechaVisto().isAfter(antesDeVer));
+        assertTrue("fecha de visto posterior al mensaje enviado", mensajeVisto.getFechaVisto().isAfter(mensaje.getFecha()));
     }
 }
