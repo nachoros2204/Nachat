@@ -36,6 +36,7 @@ public class EnviarMensajesTests {
         assertEquals(1, chat.getMensajesChat().size());
         assertEquals("Mensaje", chat.getMensajesChat().get(0).getTexto());
         assertEquals("Juan", chat.getMensajesChat().get(0).getUsuarioRemitente().getNombre());
+        assertEquals("123", chat.getMensajesChat().get(0).getUsuarioRemitente().getNumeroTelefono());
     }
 
     @Test
@@ -56,6 +57,7 @@ public class EnviarMensajesTests {
         assertEquals(1, chat.getMensajesChat().size());
         assertEquals("Mensaje", chat.getMensajesChat().get(0).getTexto());
         assertEquals("Juan", chat.getMensajesChat().get(0).getUsuarioRemitente().getNombre());
+        assertEquals("123", chat.getMensajesChat().get(0).getUsuarioRemitente().getNumeroTelefono());
     }
 
     @Test
@@ -73,5 +75,6 @@ public class EnviarMensajesTests {
         assertEquals(1, chat.getMensajesChat().size());
         assertEquals("Mensaje", chat.getMensajesChat().get(0).getTexto());
         assertEquals("Juan", chat.getMensajesChat().get(0).getUsuarioRemitente().getNombre());
+        assertEquals("123", chat.getMensajesChat().get(0).getUsuarioRemitente().getNumeroTelefono());
     }
 }
