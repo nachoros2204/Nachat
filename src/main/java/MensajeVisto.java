@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 
 public class MensajeVisto implements IMensajeVisto {
     private Mensaje mensaje;
-    private ParticipanteDeChat usuario;
+    private Usuario usuario;
     private LocalDateTime fechaVisto;
 
-    public MensajeVisto(Mensaje mensaje, ParticipanteDeChat usuario) {
+    public MensajeVisto(Mensaje mensaje, Usuario usuario) {
         this.mensaje = mensaje;
         this.usuario = usuario;
         this.fechaVisto = LocalDateTime.now();
