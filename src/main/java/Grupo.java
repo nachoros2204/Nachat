@@ -24,7 +24,7 @@ public class Grupo extends ParticipanteDeChat {
     @Override
     public void recibirMensaje(Mensaje mensaje) {
         for (Usuario miembro : miembros) {
-            miembro.recibirMensaje(mensaje); //reenvia el mensaje a cada miembro
+            miembro.recibirMensaje(mensaje); //cada miembro recibe el mensaje como notificacion
         }
     }
 }
